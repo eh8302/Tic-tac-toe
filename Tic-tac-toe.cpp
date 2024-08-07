@@ -47,11 +47,18 @@ int winner(){
     }
     return 0;
 }
+void swap_playerANDmarker(){
+    if(current_marker == 'X') current_marker ='O';
+    else current_marker = 'X';
+
+    if(current_player == 1)current_player = 2;
+    else current_player = 1;
+}
 
 
 void game(){
-    cout<<"Player 1 , Choose your marker :";
-    char P1;
+    cout<<"Player 1 , Choose your marker (X or O):";
+    char P1; 
     cin>>P1;
 
     current_player=1;
@@ -88,6 +95,10 @@ void game(){
             cout<<"Player 2 won! Congratulation!";
             break;
         }
+        swap_playerANDmarker();
+    }
+    if(Player_won == 0){
+        cout << "That's a draw!"<<endl;
     }
 }
 
